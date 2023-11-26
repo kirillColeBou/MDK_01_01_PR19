@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace FurnitureStore_Тепляков.Elements
 {
@@ -20,16 +21,18 @@ namespace FurnitureStore_Тепляков.Elements
     /// </summary>
     public partial class Item : UserControl
     {
-        private Classes.Item item;
-
-        public Item()
-        {
-            InitializeComponent();
-        }
-
         public Item(Classes.Item item)
         {
-            this.item = item;
+            InitializeComponent();
+            if(item != null)
+            {
+                if (File.Exists(Directory.GetCurrentDirectory() + "/Image/Image_item/" + item.img))
+                    image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "Image/Image_item/" + item.img));
+                else
+                    image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "Image/Image_item/table.png"));
+                price.Content = item.price;
+                name.Content = item.name;
+            }
         }
     }
 }
