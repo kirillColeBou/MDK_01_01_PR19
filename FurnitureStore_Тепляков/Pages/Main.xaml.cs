@@ -20,9 +20,21 @@ namespace FurnitureStore_Тепляков.Pages
     /// </summary>
     public partial class Main : Page
     {
+        public List<Classes.Item> Items = new List<Classes.Item>();
         public Main()
         {
             InitializeComponent();
+            Items.Add(new Classes.Item("Cтол деревянный", 10000, "table.jpg"));
+            LoadItems();
+        }
+
+        public void LoadItems()
+        {
+            parent.Children.Clear();
+            foreach (var item in Items)
+            {
+                parent.Children.Add(new Elements.Item(item));
+            }   
         }
     }
 }

@@ -20,9 +20,16 @@ namespace FurnitureStore_Тепляков.Elements
     /// </summary>
     public partial class Item : UserControl
     {
+        private Classes.Item item;
+
         public Item()
         {
             InitializeComponent();
+        }
+
+        public Item(Classes.Item item)
+        {
+            this.item = item;
         }
     }
 }
