@@ -25,6 +25,11 @@ namespace FurnitureStore_Тепляков.Pages
         {
             InitializeComponent();
             Items.Add(new Classes.Item("Cтол деревянный", 10000, "table.jpg"));
+            Items.Add(new Classes.Item("Cтол", 6000, "table2.jpg"));
+            Items.Add(new Classes.Item("Диван", 15000, "sofa.jpg"));
+            Items.Add(new Classes.Item("Диван раздвижной", 25000, "sofa2.jpg"));
+            Items.Add(new Classes.Item("Шкаф-стенка", 9000, "cupboard.jpeg"));
+            Items.Add(new Classes.Item("Шкаф с раздвижными дверями", 14000, "cupboard2.jpg"));
             LoadItems();
         }
 

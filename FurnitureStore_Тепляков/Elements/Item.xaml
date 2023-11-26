@@ -7,7 +7,7 @@
              mc:Ignorable="d">
     <Grid Width="200">
         <Grid Margin="15,15,15,15" Background="#7FFFFFFF" Height="300" Width="170">
-            <Image x:Name="image" Margin="-10,-10,-10,120" Stretch="UniformToFill" Source="/FurnitureStore_Тепляков;component/Image/Image_item/table.jpg"/>
+            <Image x:Name="image" Margin="-10,-10,-10,120" Stretch="Fill" Source="/FurnitureStore_Тепляков;component/Image/Image_item/table.jpg"/>
             <Label x:Name="price" Content="10000 р." Margin="10,180,10,94" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Foreground="Black"/>
             <Label x:Name="name" Content="Стол деревянный" Margin="10,208,10,66" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Foreground="Black"/>
             <Button Content="-" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="30" Height="25" Margin="10,0,0,38"/>

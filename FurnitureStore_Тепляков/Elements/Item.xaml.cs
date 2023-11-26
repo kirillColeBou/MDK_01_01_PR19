@@ -27,10 +27,10 @@ namespace FurnitureStore_Тепляков.Elements
             if(item != null)
             {
                 if (File.Exists(Directory.GetCurrentDirectory() + "/Image/Image_item/" + item.img))
-                    image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "Image/Image_item/" + item.img));
+                    image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "/Image/Image_item/" + item.img));
                 else
-                    image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "Image/Image_item/table.png"));
-                price.Content = item.price;
+                    image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "/Image/Image_item/table.jpg"));
+                price.Content = item.price + " р.";
                 name.Content = item.name;
             }
         }
