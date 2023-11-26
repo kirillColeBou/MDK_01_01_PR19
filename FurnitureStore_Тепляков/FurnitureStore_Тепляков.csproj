@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Elements\Item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +66,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elements\Item.xaml.cs">
+      <DependentUpon>Item.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -106,6 +113,14 @@
     <Resource Include="Image\instagram.png" />
     <Resource Include="Image\telegramm.png" />
     <Resource Include="Image\vk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Image_item\cupboard.jpeg" />
+    <Resource Include="Image\Image_item\cupboard2.jpg" />
+    <Resource Include="Image\Image_item\sofa.jpg" />
+    <Resource Include="Image\Image_item\sofa2.jpg" />
+    <Resource Include="Image\Image_item\table.jpg" />
+    <Resource Include="Image\Image_item\table2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
