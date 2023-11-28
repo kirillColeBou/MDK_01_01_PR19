@@ -12,11 +12,14 @@ namespace FurnitureStore_Тепляков.Classes
         public int price { get; set; }
         public string img { get; set; }
 
-        public Item(string _name, int _price, string _img)
+        public string filter { get; set; }
+
+        public Item(string _name, int _price, string _img, string _filter)
         {
             this.name = _name;
             this.price = _price;
             this.img = _img;
+            this.filter = _filter;
         }
     }
 }

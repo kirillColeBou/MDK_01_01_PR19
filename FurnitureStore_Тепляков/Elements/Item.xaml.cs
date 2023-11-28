@@ -21,6 +21,9 @@ namespace FurnitureStore_Тепляков.Elements
     /// </summary>
     public partial class Item : UserControl
     {
+        public Classes.Item items;
+        public string[] allPrice;
+        public int fullPrice;
         public Item(Classes.Item item)
         {
             InitializeComponent();
@@ -32,7 +35,38 @@ namespace FurnitureStore_Тепляков.Elements
                     image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "/Image/Image_item/table.jpg"));
                 price.Content = item.price + " р.";
                 name.Content = item.name;
+                allPrice = item.price.ToString().Split(' ');
+                Addgoods();
             }
+        }
+
+        public void Addgoods()
+        {
+            minus.Click += delegate
+            {
+                if (count.Text != "")
+                    if (int.Parse(count.Text) > 0)
+                    {
+                        count.Text = (int.Parse(count.Text) - 1).ToString();
+                    }
+            };
+            plus.Click += delegate
+            {
+                if (count.Text != "")
+                    if (int.Parse(count.Text) < 15)
+                    {
+                        count.Text = (int.Parse(count.Text) + 1).ToString();
+                    };
+            };
+        }
+
+        private void AddItem(object sender, RoutedEventArgs e)
+        {
+            for(int i = 0; i < Pages.Main.main.parent.Children.Count; i++)
+            {
+                fullPrice += Convert.ToInt32(allPrice[i]);
+            }
+            Pages.Main.main.korzina.Content = fullPrice.ToString();
         }
     }
 }

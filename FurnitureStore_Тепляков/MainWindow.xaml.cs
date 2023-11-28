@@ -20,12 +20,25 @@ namespace FurnitureStore_Тепляков
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow mainWindow;
         public MainWindow()
         {
             InitializeComponent();
-            OpenPage(new Pages.Main());
+            OpenPage(pages.main);
+            mainWindow = this;
         }
 
-        public void OpenPage(Page page) => frame.Navigate(page);
+        public enum pages
+        {
+            main, catalog
+        }
+
+        public void OpenPage(pages _pages)
+        {
+            if(_pages == pages.main)
+                frame.Navigate(new Pages.Main());
+            if (_pages == pages.catalog)
+                frame.Navigate(new Pages.Catalog());
+        }
     }
 }
