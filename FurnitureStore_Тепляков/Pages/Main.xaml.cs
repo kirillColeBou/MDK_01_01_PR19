@@ -21,8 +21,8 @@ namespace FurnitureStore_Тепляков.Pages
     public partial class Main : Page
     {
         public static List<Classes.Item> Items;
-        public static Pages.Main main;
-        public static bool IsSortirovochka = false;
+        public static Main main;
+        public static bool Pages_Open = false;
         public Main()
         {
             InitializeComponent();
@@ -34,19 +34,50 @@ namespace FurnitureStore_Тепляков.Pages
             Items.Add(new Classes.Item("Шкаф-стенка", 9000, "cupboard.jpeg", "шкаф"));
             Items.Add(new Classes.Item("Шкаф с дверями", 14000, "cupboard2.jpg", "шкаф"));
             main = this;
-            LoadItems(Items);
+            LoadItems();
         }
 
-        public void LoadItems(List<Classes.Item> ahaha)
+        public void LoadItems()
         {
-            parent.Children.Clear();
-            foreach (var item in ahaha)
+            if(Pages_Open == false)
             {
-                parent.Children.Add(new Elements.Item(item));
-            }   
+                if(Catalog.iTable == false && Catalog.iSofa == false && Catalog.iCupboard == false)
+                {
+                    parent.Children.Clear();
+                    foreach (var item in Items)
+                    {
+                        parent.Children.Add(new Elements.Item(item));
+                    }
+                }
+                if (Catalog.iTable == true)
+                {
+                    parent.Children.Clear();
+                    foreach (var item in Catalog.Items_table)
+                    {
+                        parent.Children.Add(new Elements.Item(item));
+                    }
+                }
+                if (Catalog.iSofa == true)
+                {
+                    parent.Children.Clear();
+                    foreach (var item in Catalog.Items_sofa)
+                    {
+                        parent.Children.Add(new Elements.Item(item));
+                    }
+                }
+                if (Catalog.iCupboard == true)
+                {
+                    parent.Children.Clear();
+                    foreach (var item in Catalog.Items_cupboard)
+                    {
+                        parent.Children.Add(new Elements.Item(item));
+                    }
+                }
+            }
+            Pages_Open = true;
         }
 
-        private void Catalog(object sender, RoutedEventArgs e)
+        private void CatalogClick(object sender, RoutedEventArgs e)
         {
             MainWindow.mainWindow.OpenPage(MainWindow.pages.catalog);
         }

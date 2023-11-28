@@ -22,7 +22,6 @@ namespace FurnitureStore_Тепляков.Elements
     public partial class Item : UserControl
     {
         public Classes.Item items;
-        public string[] allPrice;
         public int fullPrice;
         public Item(Classes.Item item)
         {
@@ -35,7 +34,6 @@ namespace FurnitureStore_Тепляков.Elements
                     image.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + "/Image/Image_item/table.jpg"));
                 price.Content = item.price + " р.";
                 name.Content = item.name;
-                allPrice = item.price.ToString().Split(' ');
                 Addgoods();
             }
         }
@@ -62,11 +60,10 @@ namespace FurnitureStore_Тепляков.Elements
 
         private void AddItem(object sender, RoutedEventArgs e)
         {
-            for(int i = 0; i < Pages.Main.main.parent.Children.Count; i++)
+            foreach(var item in Pages.Main.Items)
             {
-                fullPrice += Convert.ToInt32(allPrice[i]);
+                MessageBox.Show(item.price.ToString());
             }
-            Pages.Main.main.korzina.Content = fullPrice.ToString();
         }
     }
 }
