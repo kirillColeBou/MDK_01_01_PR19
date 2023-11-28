@@ -27,12 +27,12 @@ namespace FurnitureStore_Тепляков.Pages
         {
             InitializeComponent();
             Items = new List<Classes.Item>();
-            Items.Add(new Classes.Item("Cтол деревянный", 10000, "table.jpg", "стол"));
-            Items.Add(new Classes.Item("Cтол", 6000, "table2.jpg", "стол"));
-            Items.Add(new Classes.Item("Диван", 15000, "sofa.jpg", "диван"));
-            Items.Add(new Classes.Item("Диван раздвижной", 25000, "sofa2.jpg", "диван"));
-            Items.Add(new Classes.Item("Шкаф-стенка", 9000, "cupboard.jpeg", "шкаф"));
-            Items.Add(new Classes.Item("Шкаф с дверями", 14000, "cupboard2.jpg", "шкаф"));
+            Items.Add(new Classes.Item("Cтол деревянный", 10000, "table.jpg", "стол", 0));
+            Items.Add(new Classes.Item("Cтол", 6000, "table2.jpg", "стол", 0));
+            Items.Add(new Classes.Item("Диван", 15000, "sofa.jpg", "диван", 0));
+            Items.Add(new Classes.Item("Диван раздвижной", 25000, "sofa2.jpg", "диван", 0));
+            Items.Add(new Classes.Item("Шкаф-стенка", 9000, "cupboard.jpeg", "шкаф", 0));
+            Items.Add(new Classes.Item("Шкаф с дверями", 14000, "cupboard2.jpg", "шкаф", 0));
             main = this;
             LoadItems();
         }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using FurnitureStore_Тепляков.Pages;
 
 namespace FurnitureStore_Тепляков.Elements
 {
@@ -22,7 +23,9 @@ namespace FurnitureStore_Тепляков.Elements
     public partial class Item : UserControl
     {
         public Classes.Item items;
-        public int fullPrice;
+        public static int sum = 0;
+        public static Dictionary<string, int> basket = new Dictionary<string, int>();
+
         public Item(Classes.Item item)
         {
             InitializeComponent();
@@ -51,7 +54,7 @@ namespace FurnitureStore_Тепляков.Elements
             plus.Click += delegate
             {
                 if (count.Text != "")
-                    if (int.Parse(count.Text) < 15)
+                    if (int.Parse(count.Text) < 10)
                     {
                         count.Text = (int.Parse(count.Text) + 1).ToString();
                     };
@@ -60,9 +63,23 @@ namespace FurnitureStore_Тепляков.Elements
 
         private void AddItem(object sender, RoutedEventArgs e)
         {
-            foreach(var item in Pages.Main.Items)
+            foreach (var item in Main.Items)
             {
-                MessageBox.Show(item.price.ToString());
+                if (this.name.Content.ToString() == item.name)
+                {
+                    int countToAdd = Convert.ToInt32(count.Text);
+                    if (basket.ContainsKey(item.name))
+                    {
+                        countToAdd -= basket[item.name];
+                        basket[item.name] += countToAdd;
+                    }
+                    else
+                    {
+                        basket.Add(item.name, countToAdd);
+                    }
+                    sum += item.price * countToAdd;
+                    Main.main.korzina.Content = $"Корзина ({sum} р.)";
+                }
             }
         }
     }
